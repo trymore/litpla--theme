@@ -525,30 +525,12 @@ if (!($bodyClass)) {
                     <div class="dropnav-contents">
                       <p class="dropnav-heading"><span class="text-main">ご来場ガイド</span><span class="text-sub">GUIDE</span></p>
                       <ul class="dropnav-list">
-                        <li><a href="/guide_first/">はじめての方へ<span class="icon-arrow-circle"><span class="icon-arrow">
-                                <svg>
-                                  <use xlink:href="#icon-arrow"/>
-                                </svg></span></span></a></li>
-                        <li><a href="/sharing/">魔法のリストバンド<span class="icon-arrow-circle"><span class="icon-arrow">
-                                <svg>
-                                  <use xlink:href="#icon-arrow"/>
-                                </svg></span></span></a></li>
-                        <li><a href="/workshop/">ワークショップ<span class="icon-arrow-circle"><span class="icon-arrow">
-                                <svg>
-                                  <use xlink:href="#icon-arrow"/>
-                                </svg></span></span></a></li>
-                        <li><a href="/halfyear/">半年バリューパス<span class="icon-arrow-circle"><span class="icon-arrow">
-                                <svg>
-                                  <use xlink:href="#icon-arrow"/>
-                                </svg></span></span></a></li>
-                        <li><a href="/app/">アプリ<span class="icon-arrow-circle"><span class="icon-arrow">
-                                <svg>
-                                  <use xlink:href="#icon-arrow"/>
-                                </svg></span></span></a></li>
-                        <li><a href="/goods/">グッズ<span class="icon-arrow-circle"><span class="icon-arrow">
-                                <svg>
-                                  <use xlink:href="#icon-arrow"/>
-                                </svg></span></span></a></li>
+                        <li><a href="/guide_first/">はじめての方へ<span class="icon-arrow-circle"><span class="icon-arrow"><svg><use xlink:href="#icon-arrow"/></svg></span></span></a></li>
+                        <li><a href="/sharing/">魔法のリストバンド<span class="icon-arrow-circle"><span class="icon-arrow"><svg><use xlink:href="#icon-arrow"/></svg></span></span></a></li>
+                        <li><a href="/workshop/">ワークショップ<span class="icon-arrow-circle"><span class="icon-arrow"><svg><use xlink:href="#icon-arrow"/></svg></span></span></a></li>
+                        <li><a href="/halfyear/">半年バリューパス<span class="icon-arrow-circle"><span class="icon-arrow"><svg><use xlink:href="#icon-arrow"/></svg></span></span></a></li>
+                        <li><a href="/app/">アプリ<span class="icon-arrow-circle"><span class="icon-arrow"><svg><use xlink:href="#icon-arrow"/></svg></span></span></a></li>
+                        <li><a href="/goods/">グッズ<span class="icon-arrow-circle"><span class="icon-arrow"><svg><use xlink:href="#icon-arrow"/></svg></span></span></a></li>
                       </ul>
                     </div>
                   </div>
@@ -559,14 +541,8 @@ if (!($bodyClass)) {
                     <div class="dropnav-contents">
                       <p class="dropnav-heading"><span class="text-main">ニュース/ブログ</span><span class="text-sub">NEWS / BLOG</span></p>
                       <ul class="dropnav-list">
-                        <li><a href="/news/">ニュース<span class="icon-arrow-circle"><span class="icon-arrow">
-                                <svg>
-                                  <use xlink:href="#icon-arrow"/>
-                                </svg></span></span></a></li>
-                        <li><a href="/magazine/">ブログ<span class="icon-arrow-circle"><span class="icon-arrow">
-                                <svg>
-                                  <use xlink:href="#icon-arrow"/>
-                                </svg></span></span></a></li>
+                        <li><a href="/news/">ニュース<span class="icon-arrow-circle"><span class="icon-arrow"><svg><use xlink:href="#icon-arrow"/></svg></span></span></a></li>
+                        <li><a href="/magazine/">ブログ<span class="icon-arrow-circle"><span class="icon-arrow"><svg><use xlink:href="#icon-arrow"/></svg></span></span></a></li>
                       </ul>
                     </div>
                   </div>
