@@ -37,7 +37,7 @@ jobs:
       - name: create archive
         env:
           PACKAGE_NAME: 'litpla--theme'
-          FILES_TO_ARCIVE: '*.php *.md *.css *.txt *.png LICENSE phpcs.xml.dist /assets /lib'
+          FILES_TO_ARCIVE: '*.php *.md *.css *.txt *.png LICENSE phpcs.xml.dist assets/ lib/'
         run: zip -r ${PACKAGE_NAME}.zip ${FILES_TO_ARCIVE}
 
       # upload zip arvive by ghr.
