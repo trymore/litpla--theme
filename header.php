@@ -467,14 +467,8 @@ if (!($bodyClass)) {
             <div class="followus header-followus">
               <p class="btn-text">FOLLOW US</p>
               <ul>
-                <li class="btn-instagram"><a href="https://www.instagram.com/litpla/ " target="_blank"><span class="btn-icon">
-                      <svg>
-                        <use xlink:href="#icon-instagram"/>
-                      </svg></span></a></li>
-                <li class="btn-twitter"><a href="https://twitter.com/litpla_info " target="_blank"><span class="btn-icon">
-                      <svg>
-                        <use xlink:href="#icon-twitter"/>
-                      </svg></span></a></li>
+                <li class="btn-instagram"><a href="https://www.instagram.com/litpla/ " target="_blank"><span class="btn-icon"><svg><use xlink:href="#icon-instagram"/></svg></span></a></li>
+                <li class="btn-twitter"><a href="https://twitter.com/litpla_info " target="_blank"><span class="btn-icon"><svg><use xlink:href="#icon-twitter"/></svg></span></a></li>
               </ul>
             </div>
             <div class="btn-login"><a href="https://reserve.litpla.com/mypage" target="_blank"><span class="btn-icon">
