@@ -686,22 +686,10 @@ if (!($bodyClass)) {
                         </svg></span></span></span>
                   <div class="menu-subnav" data-sub-menu>
                     <ul>
-                      <li><a href="/">日本語<span class="icon-arrow">
-                            <svg>
-                              <use xlink:href="#icon-arrow"/>
-                            </svg></span></a></li>
-                      <li><a href="/park-guide-en/">ENGLISH<span class="icon-arrow">
-                            <svg>
-                              <use xlink:href="#icon-arrow"/>
-                            </svg></span></a></li>
-                      <li><a href="/park-guide-zh-tw/">簡体中文<span class="icon-arrow">
-                            <svg>
-                              <use xlink:href="#icon-arrow"/>
-                            </svg></span></a></li>
-                      <li><a href="/park-guide-zh-cn/">繁體中文<span class="icon-arrow">
-                            <svg>
-                              <use xlink:href="#icon-arrow"/>
-                            </svg></span></a></li>
+                      <li><a href="/">日本語<span class="icon-arrow"><svg><use xlink:href="#icon-arrow"/></svg></span></a></li>
+                      <li><a href="/park-guide-en/">ENGLISH<span class="icon-arrow"><svg><use xlink:href="#icon-arrow"/></svg></span></a></li>
+                      <li><a href="/park-guide-zh-tw/">簡体中文<span class="icon-arrow"><svg><use xlink:href="#icon-arrow"/></svg></span></a></li>
+                      <li><a href="/park-guide-zh-cn/">繁體中文<span class="icon-arrow"><svg><use xlink:href="#icon-arrow"/></svg></span></a></li>
                     </ul>
                   </div>
                 </li>
