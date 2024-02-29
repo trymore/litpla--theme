@@ -1,14 +1,3 @@
-/*
-Theme Name: litpla theme
-Author: himecas
-Author URI: https://litpla.com/
-Description: リトプラテーマ
-Version: 1.2.1
-License: GNU General Public License v2 or later
-License URI: LICENSE
-*/
-
-
 @charset "UTF-8";
 .page-about .section-about .section-1 .section-inner,
 .page-app-detail .section-inner,
@@ -211,9 +200,10 @@ License URI: LICENSE
 .page-business-download .section-download .block-left .document .heading,
 .page-business-download .section-download .form-heading,
 .page-business-download .section-download .form-item-agree input + span,
-.page-business-download .form-complete .heading,
-.page-business-download .form-complete .text,
-.page-business-download .form-complete .btn-business-dowoload .btn-text,
+.page-business-download .mw .form-complete .heading,
+.page-business-download .mw-complete .form-complete .heading,
+.page-business-download .mw-complete .form-complete .text,
+.page-business-download .mw-complete .form-complete .btn-business-dowoload .btn-text,
 .page-business .business-header .block-btn .btn-text,
 .page-business .section-hero .section-heading .text-1,
 .page-business .section-hero .section-heading .text-2,
@@ -8227,12 +8217,10 @@ section,
 }
 .page-business-download .business-download-header .logo {
   width: 480px;
-  height: 43px;
 }
 @media only screen and (max-width: 767px) {
   .page-business-download .business-download-header .logo {
     width: 66.66666666666666vw;
-    height: 5.866666666666666vw;
   }
 }
 .page-business-download .business-download-header .logo a {
@@ -8240,8 +8228,8 @@ section,
   width: 100%;
   height: 100%;
 }
-.page-business-download .business-download-header .logo svg {
-  fill: #fff;
+.page-business-download .business-download-header .logo img {
+  vertical-align: top;
 }
 .page-business-download .section-download {
   padding: 0 30px;
@@ -8480,7 +8468,7 @@ section,
   .page-business-download .section-download .block-left .document li {
     min-height: 21.333333333333336vw;
     border-radius: 4vw;
-    padding: 4vw 4.8vw 5.066666666666666vw;
+    padding: 4.266666666666667vw 4.8vw 4.8vw;
     font-size: 3.733333333333334vw;
     line-height: 1.642857142857143;
   }
@@ -8905,35 +8893,51 @@ section,
     background: #5fbce7;
   }
 }
-.page-business-download .mw {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-  z-index: 100;
-}
-.page-business-download .mw .mw-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(255,255,255,0.5);
-}
-.page-business-download .mw .mw-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  min-height: 100%;
+.page-business-download .mw .form-complete {
+  width: 600px;
+  padding: 57px 0 69px;
+  background: #5fbce7;
+  border-radius: 50px;
+  color: #fff;
+  text-align: center;
   box-sizing: border-box;
 }
-.page-business-download .mw .mw-contents {
-  position: relative;
+.page-business-download .mw .form-complete .heading {
+  font-size: 3.2rem;
+}
+.page-business-download .mw .form-complete .loading-icon {
+  width: 40px;
+  margin: 40px auto;
+}
+.page-business-download .mw .form-complete .character {
+  width: 70px;
+  margin: -4px auto 0;
+}
+.page-business-download .mw .form-complete .text {
+  margin-top: 3px;
+  margin-left: 4px;
+  font-size: 1.6rem;
+  line-height: 2.125;
+}
+@media only screen and (max-width: 767px) {
+  .page-business-download .mw .form-complete {
+    width: 80vw;
+    padding: 9.066666666666666vw 0 10.266666666666667vw;
+    border-radius: 8vw;
+  }
+  .page-business-download .mw .form-complete .heading {
+    font-size: 5.333333333333334vw;
+  }
+  .page-business-download .mw .form-complete .character {
+    width: 13.333333333333334vw;
+    margin-top: 0.933333333333333vw;
+  }
+  .page-business-download .mw .form-complete .text {
+    margin-top: 1.066666666666667vw;
+    margin-left: 0.533333333333333vw;
+    font-size: 3.2vw;
+    line-height: 2;
+  }
 }
 .page-business-download .mw .mw-download-btn-close {
   position: absolute;
@@ -9019,7 +9023,39 @@ section,
     background: #2d2d2d;
   }
 }
-.page-business-download .form-complete {
+.page-business-download .mw-complete {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  z-index: 100;
+  pointer-events: none;
+}
+.page-business-download .mw-complete .mw-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.5);
+}
+.page-business-download .mw-complete .mw-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100%;
+  box-sizing: border-box;
+}
+.page-business-download .mw-complete .mw-contents {
+  position: relative;
+  pointer-events: auto;
+}
+.page-business-download .mw-complete .form-complete {
   width: 600px;
   padding: 59px 0 56px;
   background: #5fbce7;
@@ -9029,45 +9065,45 @@ section,
   box-sizing: border-box;
 }
 @media only screen and (max-width: 767px) {
-  .page-business-download .form-complete {
+  .page-business-download .mw-complete .form-complete {
     width: 84vw;
     padding: 11.466666666666667vw 0 11.466666666666667vw;
     border-radius: 8vw;
   }
 }
-.page-business-download .form-complete .heading {
+.page-business-download .mw-complete .form-complete .heading {
   font-size: 2.8rem;
   line-height: 1;
 }
 @media only screen and (max-width: 767px) {
-  .page-business-download .form-complete .heading {
+  .page-business-download .mw-complete .form-complete .heading {
     font-size: 5.333333333333334vw;
   }
 }
-.page-business-download .form-complete .character {
+.page-business-download .mw-complete .form-complete .character {
   width: 79px;
   margin: 18px auto 0;
 }
 @media only screen and (max-width: 767px) {
-  .page-business-download .form-complete .character {
+  .page-business-download .mw-complete .form-complete .character {
     width: 14.933333333333335vw;
     margin-top: 3.733333333333334vw;
   }
 }
-.page-business-download .form-complete .text {
+.page-business-download .mw-complete .form-complete .text {
   margin-top: 17px;
   margin-left: 4px;
   font-size: 2.2rem;
   line-height: 1;
 }
 @media only screen and (max-width: 767px) {
-  .page-business-download .form-complete .text {
+  .page-business-download .mw-complete .form-complete .text {
     margin-top: 3.333333333333333vw;
     margin-left: 0.266666666666667vw;
     font-size: 3.733333333333334vw;
   }
 }
-.page-business-download .form-complete .btn-business-dowoload {
+.page-business-download .mw-complete .form-complete .btn-business-dowoload {
   width: 280px;
   height: 70px;
   border-radius: 35px;
@@ -9081,7 +9117,7 @@ section,
   box-sizing: border-box;
 }
 @media only screen and (max-width: 767px) {
-  .page-business-download .form-complete .btn-business-dowoload {
+  .page-business-download .mw-complete .form-complete .btn-business-dowoload {
     width: 56.00000000000001vw;
     height: 16vw;
     border-radius: 8vw;
@@ -9092,22 +9128,22 @@ section,
     box-shadow: 0 1.6vw 2.666666666666667vw 0 rgba(2,17,33,0.08);
   }
 }
-.page-business-download .form-complete .btn-business-dowoload span {
+.page-business-download .mw-complete .form-complete .btn-business-dowoload span {
   display: block;
 }
-.page-business-download .form-complete .btn-business-dowoload span svg {
+.page-business-download .mw-complete .form-complete .btn-business-dowoload span svg {
   vertical-align: top;
 }
-.page-business-download .form-complete .btn-business-dowoload .btn-text {
+.page-business-download .mw-complete .form-complete .btn-business-dowoload .btn-text {
   color: #fff;
   font-size: 1.5rem;
 }
 @media only screen and (max-width: 767px) {
-  .page-business-download .form-complete .btn-business-dowoload .btn-text {
+  .page-business-download .mw-complete .form-complete .btn-business-dowoload .btn-text {
     font-size: 2.933333333333333vw;
   }
 }
-.page-business-download .form-complete .btn-business-dowoload .btn-icon {
+.page-business-download .mw-complete .form-complete .btn-business-dowoload .btn-icon {
   width: 13px;
   height: 15px;
   margin-left: 10px;
@@ -9115,7 +9151,7 @@ section,
   fill: #fff;
 }
 @media only screen and (max-width: 767px) {
-  .page-business-download .form-complete .btn-business-dowoload .btn-icon {
+  .page-business-download .mw-complete .form-complete .btn-business-dowoload .btn-icon {
     width: 2.533333333333333vw;
     height: 2.933333333333333vw;
     margin-left: 1.6vw;
@@ -9123,41 +9159,41 @@ section,
   }
 }
 @media only screen and (min-width: 768px) and (any-hover: hover) {
-  .page-business-download .form-complete .btn-business-dowoload {
+  .page-business-download .mw-complete .form-complete .btn-business-dowoload {
     transition: 0.3s;
   }
-  .page-business-download .form-complete .btn-business-dowoload .btn-text,
-  .page-business-download .form-complete .btn-business-dowoload .btn-icon {
+  .page-business-download .mw-complete .form-complete .btn-business-dowoload .btn-text,
+  .page-business-download .mw-complete .form-complete .btn-business-dowoload .btn-icon {
     transition: 0.3s;
   }
-  .page-business-download .form-complete .btn-business-dowoload:hover {
+  .page-business-download .mw-complete .form-complete .btn-business-dowoload:hover {
     background: #fff;
   }
-  .page-business-download .form-complete .btn-business-dowoload:hover .btn-text {
+  .page-business-download .mw-complete .form-complete .btn-business-dowoload:hover .btn-text {
     color: #000;
   }
-  .page-business-download .form-complete .btn-business-dowoload:hover .btn-icon {
+  .page-business-download .mw-complete .form-complete .btn-business-dowoload:hover .btn-icon {
     fill: #000;
   }
 }
-.page-business-download .form-complete .notes {
+.page-business-download .mw-complete .form-complete .notes {
   margin-top: 17px;
   font-size: 1.4rem;
   line-height: 1.714285714285714;
 }
 @media only screen and (max-width: 767px) {
-  .page-business-download .form-complete .notes {
+  .page-business-download .mw-complete .form-complete .notes {
     margin-top: 3.733333333333334vw;
     margin-left: 0.8vw;
     font-size: 2.933333333333333vw;
     line-height: 1.909090909090909;
   }
 }
-.page-business-download .form-complete .notes a {
+.page-business-download .mw-complete .form-complete .notes a {
   position: relative;
   color: #fff;
 }
-.page-business-download .form-complete .notes a::after {
+.page-business-download .mw-complete .form-complete .notes a::after {
   position: absolute;
   bottom: -4px;
   left: 0;
@@ -9167,16 +9203,16 @@ section,
   background: #fff;
 }
 @media only screen and (max-width: 767px) {
-  .page-business-download .form-complete .notes a::after {
+  .page-business-download .mw-complete .form-complete .notes a::after {
     bottom: -1.066666666666667vw;
     height: 0.133333333333333vw;
   }
 }
 @media only screen and (min-width: 768px) and (any-hover: hover) {
-  .page-business-download .form-complete .notes a {
+  .page-business-download .mw-complete .form-complete .notes a {
     transition: 0.3s;
   }
-  .page-business-download .form-complete .notes a:hover {
+  .page-business-download .mw-complete .form-complete .notes a:hover {
     opacity: 0.7;
   }
 }
@@ -9748,6 +9784,18 @@ section,
   margin-right: -60px;
   transform: rotate(1.72deg);
 }
+.page-business .section-hero .kv .img-3 img,
+.page-business .section-hero .kv .img-5 img {
+  border-radius: 40px;
+  box-shadow: 0 35px 40px 0 rgba(2,17,33,0.15);
+}
+@media only screen and (max-width: 767px) {
+  .page-business .section-hero .kv .img-3 img,
+  .page-business .section-hero .kv .img-5 img {
+    border-radius: 5.333333333333334vw;
+    box-shadow: 0 4.666666666666667vw 5.333333333333334vw 0 rgba(2,17,33,0.15);
+  }
+}
 .page-business .section-hero .message {
   position: relative;
   margin-top: 74px;
@@ -9833,6 +9881,7 @@ section,
   background: #00a6de;
   z-index: 1;
   box-sizing: border-box;
+  box-shadow: 0 6px 10px 0 rgba(2,17,33,0.1);
 }
 @media only screen and (max-width: 767px) {
   .page-business .section-hero .partner .heading {
@@ -9842,6 +9891,7 @@ section,
     border-radius: 5.333333333333334vw;
     font-size: 3.2vw;
     letter-spacing: 0.06em;
+    box-shadow: 0 1.6vw 2.666666666666667vw 0 rgba(2,17,33,0.1);
   }
 }
 .page-business .section-hero .partner .partner-list {

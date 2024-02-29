@@ -8,6 +8,7 @@ $title = $notification['title'];
 $date = $notification['date'];
 $link = $notification['link'];
 $htmlClass = ($title) ? "" : "is-no-news" ;
+$permalink = str_replace(home_url(), "", get_permalink());
 
 if (!($bodyClass)) {
   if (is_front_page()) {
@@ -454,6 +455,7 @@ if (!($bodyClass)) {
     </svg>
     <div class="loader" data-loader></div>
     <div class="wrapper">
+      <?php if(strpos($permalink, 'business') === false): ?>
       <header class="header" data-header <?php if ($bodyClass === 'page-space-detail') { echo 'data-custom-header'; }?>>
         <div class="header-info">
           <?php
@@ -729,3 +731,4 @@ if (!($bodyClass)) {
         </div>
       </header>
       <main class="main">
+      <?php endif; ?>

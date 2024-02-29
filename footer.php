@@ -1,6 +1,8 @@
 <?php
 $tempPath = do_shortcode('[template]');
+$permalink = str_replace(home_url(), "", get_permalink());
 ?>
+      <?php if(strpos($permalink, 'business') === false): ?>
         <div class="fixed-btn-container">
           <div class="btn-tickets sp">
             <a href="https://reserve.litpla.com/purchase/ticket" target="_blank">
@@ -31,6 +33,7 @@ $tempPath = do_shortcode('[template]');
           </div>
         </div>
       </main>
+      <?php endif; ?>
       <footer class="footer">
       <div class="bg" data-animate="bg" data-animate-id="footer-bg-blue-1"></div>
         <div class="footer-inner">

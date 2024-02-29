@@ -235,7 +235,7 @@ get_header();
               ),
             ),
           ));
-          if ($pressPosts && $publicityPosts) :
+          if ($pressPosts || $publicityPosts) :
           ?>
           <section class="section-news">
             <div class="bg-item-1"></div>
