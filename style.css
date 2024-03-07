@@ -9730,14 +9730,18 @@ section,
     margin-top: 0.266666666666667vw;
   }
 }
+.page-business .section-hero .business-slider {
+  pointer-events: none;
+}
 .page-business .section-hero .kv {
   display: flex;
-  justify-content: center;
-  margin-top: 70px;
+  margin-top: 54px;
+  transition-timing-function: linear;
+  will-change: transform;
 }
 @media only screen and (max-width: 767px) {
   .page-business .section-hero .kv {
-    margin-top: 10.4vw;
+    margin-top: 9.866666666666667vw;
   }
 }
 .page-business .section-hero .kv .img {
@@ -9751,57 +9755,91 @@ section,
   }
 }
 .page-business .section-hero .kv .img-1 {
-  margin-left: -16px;
-  transform: rotate(7.18deg);
-  z-index: 1;
+  margin-top: 8px;
+  transform: rotate(-1.63deg);
 }
 @media only screen and (max-width: 767px) {
   .page-business .section-hero .kv .img-1 {
-    margin-left: -5.866666666666666vw;
+    margin-top: 0.533333333333333vw;
   }
 }
 .page-business .section-hero .kv .img-2 {
   margin-top: 13px;
-  margin-left: 15px;
-  transform: rotate(-5.84deg);
+  margin-left: 25px;
+  transform: rotate(7.18deg);
+  z-index: 1;
 }
 @media only screen and (max-width: 767px) {
   .page-business .section-hero .kv .img-2 {
-    margin-top: 1.733333333333333vw;
-    margin-left: 2vw;
+    margin-top: 0;
+    margin-left: -5.866666666666666vw;
   }
 }
 .page-business .section-hero .kv .img-3 {
-  margin-top: 13px;
+  margin-top: 30px;
+  margin-left: 13px;
+  transform: rotate(-5.84deg);
+}
+@media only screen and (max-width: 767px) {
+  .page-business .section-hero .kv .img-3 {
+    margin-top: 2.266666666666667vw;
+    margin-left: 1.733333333333333vw;
+  }
+}
+.page-business .section-hero .kv .img-4 {
+  margin-top: 30px;
   margin-left: 26px;
   transform: rotate(9.13deg);
   z-index: 1;
 }
 @media only screen and (max-width: 767px) {
-  .page-business .section-hero .kv .img-3 {
-    margin-top: 1.733333333333333vw;
+  .page-business .section-hero .kv .img-4 {
+    margin-top: 2.266666666666667vw;
     margin-left: 3.466666666666666vw;
   }
 }
-.page-business .section-hero .kv .img-4 {
-  margin-top: 5px;
+.page-business .section-hero .kv .img-5 {
+  margin-top: 22px;
   margin-left: 14px;
   transform: rotate(-2.78deg);
 }
-.page-business .section-hero .kv .img-5 {
-  margin-top: 15px;
-  margin-left: 20px;
-  margin-right: -60px;
-  transform: rotate(1.72deg);
+@media only screen and (max-width: 767px) {
+  .page-business .section-hero .kv .img-5 {
+    margin-top: 1.466666666666667vw;
+    margin-left: 1.866666666666667vw;
+  }
 }
-.page-business .section-hero .kv .img-3 img,
-.page-business .section-hero .kv .img-5 img {
+.page-business .section-hero .kv .img-6 {
+  margin-top: 32px;
+  margin-left: 20px;
+  transform: rotate(1.72deg);
+  z-index: 1;
+}
+@media only screen and (max-width: 767px) {
+  .page-business .section-hero .kv .img-6 {
+    margin-top: 2.133333333333333vw;
+    margin-left: 2.666666666666667vw;
+  }
+}
+.page-business .section-hero .kv .img-7 {
+  margin-right: -20px;
+  transform: rotate(-5.84deg);
+}
+@media only screen and (max-width: 767px) {
+  .page-business .section-hero .kv .img-7 {
+    margin-right: -2.666666666666667vw;
+  }
+}
+.page-business .section-hero .kv .img-1 img,
+.page-business .section-hero .kv .img-4 img,
+.page-business .section-hero .kv .img-6 img {
   border-radius: 40px;
   box-shadow: 0 35px 40px 0 rgba(2,17,33,0.15);
 }
 @media only screen and (max-width: 767px) {
-  .page-business .section-hero .kv .img-3 img,
-  .page-business .section-hero .kv .img-5 img {
+  .page-business .section-hero .kv .img-1 img,
+  .page-business .section-hero .kv .img-4 img,
+  .page-business .section-hero .kv .img-6 img {
     border-radius: 5.333333333333334vw;
     box-shadow: 0 4.666666666666667vw 5.333333333333334vw 0 rgba(2,17,33,0.15);
   }
@@ -10533,6 +10571,13 @@ section,
     font-size: 3.466666666666666vw;
     border-radius: 2.666666666666667vw;
   }
+}
+.page-business .section-service .service .example .heading.link {
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+.page-business .section-service .service .example .heading.link:hover {
+  opacity: 0.6;
 }
 .page-business .section-service .service .example .slider {
   position: relative;
