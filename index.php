@@ -467,7 +467,7 @@ get_header();
                       <source media="(min-width: 768px)" srcset="<?php echo $tempPath; ?>/assets/img/top/pc/app-icon.png, <?php echo $tempPath; ?>/assets/img/top/pc/app-icon@2x.png 2x" width="80" height="80"><img src="<?php echo $tempPath; ?>/assets/img/top/pc/app-icon.png" alt="" loading="lazy" width="80" height="80">
                     </picture>
                   </div>
-                  <p class="heading-text"><span>インストール</span>で<span>おとな半額！</span></p>
+                  <p class="heading-text"><span>インストール</span>はこちら</p>
                 </div>
                 <div class="links"><a class="link-appstore" href="https://apps.apple.com/app/apple-store/id6463190812?pt=119103788&amp;ct=officialsite&amp;mt=8" target="_blank">
                     <svg>
