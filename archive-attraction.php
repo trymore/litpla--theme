@@ -131,7 +131,7 @@ get_header();
           </div>
         </div>
         <section class="section-business">
-          <a href="https://corp.litpla.com/business/litpla" target="_blank">
+          <a href="/business/" target="_blank">
             <div class="bg-img">
               <picture>
                 <source media="(max-width: 767px)" srcset="<?php echo $tempPath; ?>/assets/img/top/business-bg-img.jpg" width="750" height="1000">
