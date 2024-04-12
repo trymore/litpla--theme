@@ -9,6 +9,8 @@ $date = $notification['date'];
 $link = $notification['link'];
 $htmlClass = ($title) ? "" : "is-no-news" ;
 $permalink = str_replace(home_url(), "", get_permalink());
+$ticket = "https://reserve.litpla.com/purchase/ticket";
+
 
 if (!($bodyClass)) {
   if (is_front_page()) {
@@ -25,6 +27,11 @@ if (!($bodyClass)) {
   } else if (is_category()) {
     $bodyClass = 'page-' . get_the_category()[0]->slug;
   }
+}
+
+$ticketUrl = get_field('ticket_url');
+if ($ticketUrl) {
+  $ticket = $ticketUrl;
 }
 ?>
 <!DOCTYPE html>
@@ -48,15 +55,15 @@ if (!($bodyClass)) {
       })(document);
     </script>
     <?php wp_head(); ?>
-  <!-- Google Tag Manager -->
-  <script>
-  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-M6VCW7N');
-  </script>
-  <!-- End Google Tag Manager -->
+    <!-- Google Tag Manager -->
+    <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-M6VCW7N');
+    </script>
+    <!-- End Google Tag Manager -->
   </head>
   <body<?php echo ($bodyClass) ? ' class="' . $bodyClass . '"' : ''; ?>>
     <!-- Google Tag Manager (noscript) -->
@@ -467,8 +474,14 @@ if (!($bodyClass)) {
             <div class="followus header-followus">
               <p class="btn-text">FOLLOW US</p>
               <ul>
-                <li class="btn-instagram"><a href="https://www.instagram.com/litpla/ " target="_blank"><span class="btn-icon"><svg><use xlink:href="#icon-instagram"/></svg></span></a></li>
-                <li class="btn-twitter"><a href="https://twitter.com/litpla_info " target="_blank"><span class="btn-icon"><svg><use xlink:href="#icon-twitter"/></svg></span></a></li>
+                <li class="btn-instagram"><a href="https://www.instagram.com/litpla/ " target="_blank"><span class="btn-icon">
+                      <svg>
+                        <use xlink:href="#icon-instagram"/>
+                      </svg></span></a></li>
+                <li class="btn-twitter"><a href="https://twitter.com/litpla_info " target="_blank"><span class="btn-icon">
+                      <svg>
+                        <use xlink:href="#icon-twitter"/>
+                      </svg></span></a></li>
               </ul>
             </div>
             <div class="btn-login"><a href="https://reserve.litpla.com/mypage" target="_blank"><span class="btn-icon">
@@ -519,12 +532,30 @@ if (!($bodyClass)) {
                     <div class="dropnav-contents">
                       <p class="dropnav-heading"><span class="text-main">ご来場ガイド</span><span class="text-sub">GUIDE</span></p>
                       <ul class="dropnav-list">
-                        <li><a href="/guide_first/">はじめての方へ<span class="icon-arrow-circle"><span class="icon-arrow"><svg><use xlink:href="#icon-arrow"/></svg></span></span></a></li>
-                        <li><a href="/sharing/">魔法のリストバンド<span class="icon-arrow-circle"><span class="icon-arrow"><svg><use xlink:href="#icon-arrow"/></svg></span></span></a></li>
-                        <li><a href="/workshop/">ワークショップ<span class="icon-arrow-circle"><span class="icon-arrow"><svg><use xlink:href="#icon-arrow"/></svg></span></span></a></li>
-                        <li><a href="/halfyear/">半年バリューパス<span class="icon-arrow-circle"><span class="icon-arrow"><svg><use xlink:href="#icon-arrow"/></svg></span></span></a></li>
-                        <li><a href="/app/">アプリ<span class="icon-arrow-circle"><span class="icon-arrow"><svg><use xlink:href="#icon-arrow"/></svg></span></span></a></li>
-                        <li><a href="/goods/">グッズ<span class="icon-arrow-circle"><span class="icon-arrow"><svg><use xlink:href="#icon-arrow"/></svg></span></span></a></li>
+                        <li><a href="/guide_first/">はじめての方へ<span class="icon-arrow-circle"><span class="icon-arrow">
+                                <svg>
+                                  <use xlink:href="#icon-arrow"/>
+                                </svg></span></span></a></li>
+                        <li><a href="/sharing/">魔法のリストバンド<span class="icon-arrow-circle"><span class="icon-arrow">
+                                <svg>
+                                  <use xlink:href="#icon-arrow"/>
+                                </svg></span></span></a></li>
+                        <li><a href="/workshop/">ワークショップ<span class="icon-arrow-circle"><span class="icon-arrow">
+                                <svg>
+                                  <use xlink:href="#icon-arrow"/>
+                                </svg></span></span></a></li>
+                        <li><a href="/halfyear/">半年バリューパス<span class="icon-arrow-circle"><span class="icon-arrow">
+                                <svg>
+                                  <use xlink:href="#icon-arrow"/>
+                                </svg></span></span></a></li>
+                        <li><a href="/app/">アプリ<span class="icon-arrow-circle"><span class="icon-arrow">
+                                <svg>
+                                  <use xlink:href="#icon-arrow"/>
+                                </svg></span></span></a></li>
+                        <li><a href="/goods/">グッズ<span class="icon-arrow-circle"><span class="icon-arrow">
+                                <svg>
+                                  <use xlink:href="#icon-arrow"/>
+                                </svg></span></span></a></li>
                       </ul>
                     </div>
                   </div>
@@ -535,8 +566,14 @@ if (!($bodyClass)) {
                     <div class="dropnav-contents">
                       <p class="dropnav-heading"><span class="text-main">ニュース/ブログ</span><span class="text-sub">NEWS / BLOG</span></p>
                       <ul class="dropnav-list">
-                        <li><a href="/news/">ニュース<span class="icon-arrow-circle"><span class="icon-arrow"><svg><use xlink:href="#icon-arrow"/></svg></span></span></a></li>
-                        <li><a href="/magazine/">ブログ<span class="icon-arrow-circle"><span class="icon-arrow"><svg><use xlink:href="#icon-arrow"/></svg></span></span></a></li>
+                        <li><a href="/news/">ニュース<span class="icon-arrow-circle"><span class="icon-arrow">
+                                <svg>
+                                  <use xlink:href="#icon-arrow"/>
+                                </svg></span></span></a></li>
+                        <li><a href="/magazine/">ブログ<span class="icon-arrow-circle"><span class="icon-arrow">
+                                <svg>
+                                  <use xlink:href="#icon-arrow"/>
+                                </svg></span></span></a></li>
                       </ul>
                     </div>
                   </div>
@@ -554,7 +591,7 @@ if (!($bodyClass)) {
                   <img src="<?php echo $tempPath; ?>/assets/img/header/tickets-character.png" alt="" loading="lazy" width="47" height="64">
                 </picture></span>
               <ul>
-                <li class="btn-ticket" data-tickets-el="ticket"><a href="https://reserve.litpla.com/purchase/ticket" target="_blank">チケット購入</a></li>
+                <li class="btn-ticket" data-tickets-el="ticket"><a href="<?php echo $ticket; ?>" target="_blank">チケット購入</a></li>
                 <li class="btn-group" data-tickets-el="group"><a href="/group/">団体予約</a></li>
               </ul>
             </div>
@@ -656,10 +693,22 @@ if (!($bodyClass)) {
                         </svg></span></span></span>
                   <div class="menu-subnav" data-sub-menu>
                     <ul>
-                      <li><a href="/">日本語<span class="icon-arrow"><svg><use xlink:href="#icon-arrow"/></svg></span></a></li>
-                      <li><a href="/park-guide-en/">ENGLISH<span class="icon-arrow"><svg><use xlink:href="#icon-arrow"/></svg></span></a></li>
-                      <li><a href="/park-guide-zh-tw/">簡体中文<span class="icon-arrow"><svg><use xlink:href="#icon-arrow"/></svg></span></a></li>
-                      <li><a href="/park-guide-zh-cn/">繁體中文<span class="icon-arrow"><svg><use xlink:href="#icon-arrow"/></svg></span></a></li>
+                      <li><a href="/">日本語<span class="icon-arrow">
+                            <svg>
+                              <use xlink:href="#icon-arrow"/>
+                            </svg></span></a></li>
+                      <li><a href="/park-guide-en/">ENGLISH<span class="icon-arrow">
+                            <svg>
+                              <use xlink:href="#icon-arrow"/>
+                            </svg></span></a></li>
+                      <li><a href="/park-guide-zh-tw/">簡体中文<span class="icon-arrow">
+                            <svg>
+                              <use xlink:href="#icon-arrow"/>
+                            </svg></span></a></li>
+                      <li><a href="/park-guide-zh-cn/">繁體中文<span class="icon-arrow">
+                            <svg>
+                              <use xlink:href="#icon-arrow"/>
+                            </svg></span></a></li>
                     </ul>
                   </div>
                 </li>

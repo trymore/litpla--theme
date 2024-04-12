@@ -186,7 +186,9 @@ function create_post_type() {
       'show_in_menu' => true,
       'capability_type' => 'post',
       'hierarchical' => false,
-      'rewrite' => true,
+      'rewrite' => array(
+        'with_front' => false,
+      ),
       'query_var' => false,
       'has_archive' => true,
       'exclude_from_search' => false,
@@ -210,7 +212,9 @@ function create_post_type() {
       'label' => 'カテゴリー',
       'show_ui' => true,
       'query_var' => true,
-      'rewrite' => array('slug' => 'news'),
+      'rewrite' => array(
+        'with_front' => false,
+      ),
       'singular_label' => 'カテゴリー'
     )
   );
@@ -233,7 +237,9 @@ function create_post_type() {
       ),
       'show_ui' => true,
       'query_var' => true,
-      'rewrite' => array('slug' => 'news-space'),
+      'rewrite' => array(
+        'with_front' => false,
+      ),
       'singular_label' => '表示設定'
     )
   );

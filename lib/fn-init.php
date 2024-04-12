@@ -115,14 +115,15 @@ add_filter('rewrite_rules_array', 'wp_insertMyRewriteRules');
 add_filter('query_vars', 'wp_insertMyRewriteQueryVars');
 add_filter('init', 'flushRules');
 
-function flushRules() {
-  global $wp_rewrite;
-  $wp_rewrite->flush_rules();
-}
-
 function wp_insertMyRewriteRules($rules) {
   $newrules = array();
-  $newrules['news/(.+?)/page/?([0-9]{1,})/?$'] = 'index.php?news_category=$matches[1]&paged=$matches[2]';
+  $newrules['news/page/([0-9]+)/?$'] = 'index.php?post_type=news&paged=$matches[1]';
+  $newrules['news/([^/]+)/?$'] = 'index.php?news_category=$matches[1]';
+  $newrules['news/([^/]+)/page/([0-9]+)/?$'] = 'index.php?news_category=$matches[1]&paged=$matches[2]';
+  $newrules['news/space/([^/]+)/?$'] = 'index.php?news_place=$matches[1]';
+  $newrules['news/space/([^/]+)/page/([0-9]+)/?$'] = 'index.php?news_place=$matches[1]&paged=$matches[2]';
+  $newrules['news/space/([^/]+)/([^/]+)/?$'] = 'index.php?news_place=$matches[1]&news_category=$matches[2]';
+  $newrules['news/space/([^/]+)/([^/]+)/page/([0-9]+)/?$'] = 'index.php?news_place=$matches[1]&news_category=$matches[2]&paged=$matches[3]';
   return $newrules + $rules;
 }
 
@@ -130,6 +131,37 @@ function wp_insertMyRewriteQueryVars($vars) {
   array_push($vars, 'id');
   return $vars;
 }
+
+function flushRules() {
+  global $wp_rewrite;
+  $wp_rewrite->flush_rules();
+}
+
+function mappendUrls( $urls ) {
+  $states = [
+    'press',
+    'publicity',
+  ];
+  $args = array(
+    'post_type' => 'space',
+    'posts_per_page' => -1, 
+  );
+  $posts = get_posts($args);
+  foreach ($states as $slag) {
+    $urls[] = home_url("/news/{$slag}/");
+    foreach ($posts as $post) {
+      $urls[] = home_url("/news/space/{$post->post_name}/{$slag}/");
+    }
+  }
+  foreach ($posts as $post) {
+    $urls[] = home_url("/news/space/{$post->post_name}/");
+  }
+  return $urls;
+}
+add_action('init', function(){
+  add_filter('ShifterURLS::AppendURLtoAll', 'mappendUrls');
+});
+
 
 /* スラッグを基本的にIDにする
 ====================================================*/

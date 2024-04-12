@@ -4,8 +4,6 @@ $bodyClass = 'page-news';
 $tempPath = do_shortcode('[template]');
 $termObj = get_queried_object();
 $termSlug = $termObj->slug;
-$parameter = "?news_place=$termSlug";
-
 get_header();
 ?>
         <div class="page-heading-container" data-subpage-head>
@@ -40,8 +38,8 @@ get_header();
             <ul class="category-list">
               <li><span>すべて</a></li>
               <?php
-              echo "<li><a href=\"/news/press/$parameter\">ニュース&トピックス</a></li>";
-              echo "<li><a href=\"/news/publicity/$parameter\">パークからのお知らせ</a></li>";
+              echo "<li><a href=\"/news/space/$termSlug/press/\">ニュース&トピックス</a></li>";
+              echo "<li><a href=\"/news/space/$termSlug/publicity/\">パークからのお知らせ</a></li>";
               ?>
             </ul>
             <h2 class="news-heading"><?php single_term_title(); ?></h2>

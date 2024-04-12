@@ -4,20 +4,24 @@ $bodyClass = 'page-news';
 $tempPath = do_shortcode('[template]');
 $termObj = get_queried_object();
 $title = single_term_title('', false);
-$newsURL = '/news/' ;
+$allURL = '/news/' ;
+$spaceURL = '/news/press/' ;
+$publicityURL = '/news/publicity/' ;
 $parameter = '';
+$termSlug = $termObj->slug;
+$termName = $termObj->name;
 
-if (isset( $_GET['news_place'])) {
-  $place = $_GET['news_place'];
+$place = get_query_var('news_place');
+if ($place) {
   $term = get_term_by('slug', $place, 'news_place');
   if ($term) {
     $title = $term->name;
-    $parameter = "?news_place=$place";
-    $newsURL = "/news-space/$place/";
+    $parameter = "$place/";
+    $allURL = "/news/space/$place/";
+    $spaceURL = "/news/space/$place/press/" ;
+    $publicityURL = "/news/space/$place/publicity/" ;
   }
 }
-$termSlug = $termObj->slug;
-$termName = $termObj->name;
 get_header();
 ?>
         <div class="page-heading-container" data-subpage-head>
@@ -50,18 +54,18 @@ get_header();
           <div class="bg-item-2" data-animate="bg" data-animate-id="footer-bg-black-2"></div>
           <div class="page-contents-inner">
             <ul class="category-list">
-              <li><a href="<?php echo $newsURL; ?>">すべて</a></li>
+              <li><a href="<?php echo $allURL; ?>">すべて</a></li>
               <?php
               if($termSlug === 'press'):
                 echo "<li><span>ニュース&トピックス</span></li>";
               else:
-                 echo "<li><a href=\"/news/press/$parameter\">ニュース&トピックス</a></li>";
+                 echo "<li><a href=\"$spaceURL\">ニュース&トピックス</a></li>";
               endif;
 
               if($termSlug === 'publicity'):
                 echo "<li><span>パークからのお知らせ</span></li>";
               else:
-                echo "<li><a href=\"/news/publicity/$parameter\">パークからのお知らせ</a></li>";
+                echo "<li><a href=\"$publicityURL\">パークからのお知らせ</a></li>";
               endif;
               ?>
             </ul>

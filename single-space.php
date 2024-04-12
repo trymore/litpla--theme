@@ -249,7 +249,7 @@ get_header();
                   $term = get_term_by('id', $importNews, 'news_place');
                   if ($term) {
                     $slug = $term->slug;
-                    echo "<div class=\"btn-viewmore btn-viewmore-bg-none\"><a href=\"/news-space/$slug/\"><span class=\"btn-text\">View More</span><span class=\"btn-icon\"><svg><use xlink:href=\"#icon-arrow\"/></svg></span></a></div>";
+                    echo "<div class=\"btn-viewmore btn-viewmore-bg-none\"><a href=\"/news/space/$slug/\"><span class=\"btn-text\">View More</span><span class=\"btn-icon\"><svg><use xlink:href=\"#icon-arrow\"/></svg></span></a></div>";
                   }
                   ?>
                   <div class="latest-news-list">
@@ -294,7 +294,7 @@ get_header();
                   $term = get_term_by('id', $importNews, 'news_place');
                   if ($term) {
                     $slug = $term->slug;
-                    echo "<div class=\"btn-viewmore btn-viewmore-bg-none\"><a href=\"/news/publicity/?news_place=$slug\"><span class=\"btn-text\">View More</span><span class=\"btn-icon\"><svg><use xlink:href=\"#icon-arrow\"/></svg></span></a></div>";
+                    echo "<div class=\"btn-viewmore btn-viewmore-bg-none\"><a href=\"/news/space/$slug/publicity/\"><span class=\"btn-text\">View More</span><span class=\"btn-icon\"><svg><use xlink:href=\"#icon-arrow\"/></svg></span></a></div>";
                   }
                   ?>
                   <div class="park-info-list">
