@@ -143,13 +143,6 @@ function mappendUrls($urls) {
     'publicity',
   ];
 
-  $spaceArgs = array(
-    'post_type' => 'space',
-    'posts_per_page' => -1, 
-  );
-
-  $spacePosts = get_posts($spaceArgs);
-
   foreach ($states as $slag) {
     $statesPosts = get_posts(array(
       'post_type' => 'news',
@@ -163,20 +156,50 @@ function mappendUrls($urls) {
         ),
       ),
     ));
-
     $urls[] = home_url("/news/{$slag}/");
     $statesMaxPages = ceil(count($statesPosts) / 10);
     for ($i = 1; $i <= $statesMaxPages; $i++) {
       $urls[] = home_url("/news/{$slag}/page/{$i}/");
     }
-
-    foreach ($spacePosts as $post) {
-      $urls[] = home_url("/news/space/{$post->post_name}/{$slag}/");
-    }
   }
 
+  $spacePosts = get_posts(array(
+    'post_type' => 'space',
+    'posts_per_page' => -1, 
+  ));
+
   foreach ($spacePosts as $post) {
+    $importNews = get_field('import_news', $post);
+    $spaceNewsPosts = get_posts(array(
+      'post_type' => 'news',
+      'post_status' => 'publish',
+      'posts_per_page' => -1,
+      'tax_query' => array(
+        array(
+          'taxonomy' => 'news_place',
+          'field' => 'term_taxonomy_id',
+          'terms' => $importNews,
+        ),
+      ),
+    ));
     $urls[] = home_url("/news/space/{$post->post_name}/");
+    $spaceNewsMaxPages = ceil(count($spaceNewsPosts) / 10);
+    for ($i = 1; $i <= $spaceNewsMaxPages; $i++) {
+      $urls[] = home_url("/news/space/{$post->post_name}/page/{$i}/");
+    }
+    foreach ($states as $slag) {
+      $count = 0;
+      foreach ($spaceNewsPosts as $newsPost) {
+        if (has_term($slag, 'news_category', $newsPost)) {
+          $count++;
+        }
+      }
+      $count = ceil($count / 10);
+      $urls[] = home_url("/news/space/{$post->post_name}/{$slag}/");
+      for ($i = 1; $i <= $count; $i++) {
+        $urls[] = home_url("/news/space/{$post->post_name}/{$slag}/page/{$i}/");
+      }
+    }
   }
   return $urls;
 }
