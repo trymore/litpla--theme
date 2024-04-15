@@ -137,23 +137,45 @@ function flushRules() {
   $wp_rewrite->flush_rules();
 }
 
-function mappendUrls( $urls ) {
+function mappendUrls($urls) {
   $states = [
     'press',
     'publicity',
   ];
-  $args = array(
+
+  $spaceArgs = array(
     'post_type' => 'space',
     'posts_per_page' => -1, 
   );
-  $posts = get_posts($args);
+
+  $spacePosts = get_posts($spaceArgs);
+
   foreach ($states as $slag) {
+    $statesPosts = get_posts(array(
+      'post_type' => 'news',
+      'post_status' => 'publish',
+      'posts_per_page' => -1,
+      'tax_query' => array(
+        array(
+          'taxonomy' => 'news_category',
+          'field' => 'slug',
+          'terms' => $slag,
+        ),
+      ),
+    ));
+
     $urls[] = home_url("/news/{$slag}/");
-    foreach ($posts as $post) {
+    $statesMaxPages = ceil(count($statesPosts) / 10);
+    for ($i = 1; $i <= $statesMaxPages; $i++) {
+      $urls[] = home_url("/news/{$slag}/page/{$i}/");
+    }
+
+    foreach ($spacePosts as $post) {
       $urls[] = home_url("/news/space/{$post->post_name}/{$slag}/");
     }
   }
-  foreach ($posts as $post) {
+
+  foreach ($spacePosts as $post) {
     $urls[] = home_url("/news/space/{$post->post_name}/");
   }
   return $urls;
